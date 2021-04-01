@@ -1,6 +1,7 @@
 <?php
 echo "<a href='".route('welcome')."'>На главную</a><br>";
 echo "<a href='".route('categories')."'>Категории новостей</a><br>";
+echo "<a href='/admin/news/create'>Добавить новость</a><br>";
 
 foreach ($newsList as $key=>$news) {
     if ($category == $news['category']) {
