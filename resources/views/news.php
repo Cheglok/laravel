@@ -1,5 +1,7 @@
 <?php
 
-foreach ($newsList as $key => $news) {
-    echo $news . "<a href='".route('news.show', ['id' => ++$key])."'>Ред.</a><br>";
-}
+echo "<a href='".route('welcome')."'>На главную</a><br>";
+echo "<a href='".route('categories')."'>Категории новостей</a><br>";
+echo "<h2>Подробнее о новости</h2>
+<h3>{$news['title']}</h3>
+<p>{$news['text']}</p>";

@@ -21,12 +21,8 @@
         </style>
     </head>
     <body class="antialiased">
-    <p>Navigation</p>
-    <ul>
-        <li><a href="/hello">Hello</a></li>
-        <li><a href="/news">News</a></li>
-        <li><a href="/newsList">News list</a></li>
-    </ul>
+    <h1>Рад приветствовать вас на моём учебном проекте Laravel</h1>
+    <a href='/news/categories'>Категории новостей</a>
         <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
             @if (Route::has('login'))
                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
