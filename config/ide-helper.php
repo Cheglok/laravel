@@ -34,7 +34,7 @@ return [
     |
     */
 
-    'include_fluent' => false,
+    'include_fluent' => true,
 
     /*
     |--------------------------------------------------------------------------
@@ -92,7 +92,7 @@ return [
     | contained in the Laravel Framework. This helps the IDE with
     | auto-completion.
     |
-    | Please be aware that this setting changes a file within the /vendor directory.
+    | Please be aware that this setting changes a file within the /vendor1 directory.
     |
     */
 
@@ -111,7 +111,7 @@ return [
     'include_helpers' => false,
 
     'helper_files' => [
-        base_path() . '/vendor/laravel/framework/src/Illuminate/Support/helpers.php',
+        base_path() . '/vendor1/laravel/framework/src/Illuminate/Support/helpers.php',
     ],
 
     /*

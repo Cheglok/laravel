@@ -14,7 +14,7 @@ class NewsController extends Controller
      */
     public function index()
     {
-        return "Список новостей в админке";
+        return view('admin.news.index', ['newsList' => $this->newsList]);
     }
 
     /**
@@ -24,7 +24,7 @@ class NewsController extends Controller
      */
     public function create()
     {
-        return view('newsAdd');
+        return view('admin.news.create');
     }
 
     /**
@@ -57,7 +57,7 @@ class NewsController extends Controller
      */
     public function edit($id)
     {
-        return "Редактировать новость";
+        return view('admin.news.edit');
     }
 
     /**
