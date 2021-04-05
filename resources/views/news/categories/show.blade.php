@@ -22,7 +22,6 @@
                     </article>
                     <hr>
                 @endif
-
             @empty
                 <h2>Новостей нет</h2>
             @endforelse
