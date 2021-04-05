@@ -26,10 +26,11 @@ Route::group(['prefix' => 'admin',  'as'=>'admin.'], function () {
 });
 
 
-
-Route::get('/', [WelcomeController::class, 'index']) ->name('welcome');
+Route::get('/news', [NewsController::class, 'index']);
 Route::get('/news/categories', [CategoryController::class, 'index']) ->name('categories');
-Route::get('/news/categories/{category}', [CategoryController::class, 'showCategory'])->name('category');
+Route::get('/news/categories/{category}', [CategoryController::class, 'show'])
+    ->where('category', '\w+')
+    ->name('category');
 Route::get('/news/show/{id}', [NewsController::class, 'show'])
     ->where('id', '\d+')
     ->name('news.show');

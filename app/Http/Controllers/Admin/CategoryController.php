@@ -14,7 +14,9 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return "Category list";
+        return view('admin.news.categories.index',
+            ['newsCategories' => $this->newsCategories
+            ]);
     }
 
     /**
@@ -24,7 +26,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return "Category add";
+        return view('admin.news.categories.create');
     }
 
     /**
@@ -57,7 +59,7 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        return "Category edit";
+        return view('admin.news.categories.edit');
     }
 
     /**
