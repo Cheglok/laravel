@@ -18,6 +18,7 @@ use App\Http\Controllers\Admin\CategoryController as AdminCategoryController;
 use App\Http\Controllers\Admin\NewsController as AdminNewsController;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\user\UserController;
 
 //for admin
 Route::group(['prefix' => 'admin',  'as'=>'admin.'], function () {
@@ -34,3 +35,7 @@ Route::get('/news/categories/{category}', [CategoryController::class, 'show'])
 Route::get('/news/show/{id}', [NewsController::class, 'show'])
     ->where('id', '\d+')
     ->name('news.show');
+
+Route::get('/user', [UserController::class, 'index']) ->name('user');
+Route::post('/user/feedback', [UserController::class, 'saveUserFeedback'])->name('userFeedback');
+Route::post('/user/order', [UserController::class, 'saveUserOrder'])->name('userOrder');

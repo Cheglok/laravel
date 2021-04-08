@@ -12,6 +12,7 @@ class NewsController extends Controller
     }
     public function show(int $id)
     {
+//        dd(\request());
         $news = $this->newsList[$id];
         return view('news.show', ['news'=>$news]);
     }

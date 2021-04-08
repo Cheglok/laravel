@@ -6,6 +6,7 @@
                 <ul class="primary-nav">
                     <li><a href="/news">Главная</a></li>
                     <li><a href="{{route('categories')}}">Список категорий</a></li>
+                    <li><a href="{{route('user')}}">Формы обратной связи</a></li>
                     <li><a href="{{route('admin.news.index')}}">Админка</a></li>
                 </ul>
             </nav>

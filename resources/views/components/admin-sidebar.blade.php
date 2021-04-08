@@ -19,6 +19,9 @@
                         <a href="{{route('admin.news.index')}}">Новости</a>
                     </li>
                     <li>
+                        <a href="{{route('user')}}">Формы обратной связи</a>
+                    </li>
+                    <li>
                         <a href="#">Дополнительная панель<span class="fa arrow"></span></a>
                         <ul class="nav nav-third-level">
                             <li>
