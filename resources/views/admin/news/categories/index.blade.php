@@ -15,6 +15,7 @@
                             <tr>
                                 <th>#ID</th>
                                 <th>Название категории</th>
+                                <th>Дата добавления</th>
                                 <th>Посмотреть новости в категории</th>
                                 <th>Действия</th>
                             </tr>
@@ -22,10 +23,11 @@
                             <tbody>
                             @forelse($newsCategories as $key =>$category)
                                 <tr>
-                                    <td>{{$key}}</td>
-                                    <td>{{$category}}</td>
-                                    <td><a href="{{route('category', $category)}}">{{$category}}</a></td>
-                                    <td><a href="{{route('admin.categories.edit', ['category'=>$key])}}">Ред.</a><a href="">Уд.</a></td>
+                                    <td>{{$category->id}}</td>
+                                    <td>{{$category->title}}</td>
+                                    <td>{{$category->created_at}}</td>
+                                    <td><a href="{{route('category', $category->id)}}">{{$category->title}}</a></td>
+                                    <td><a href="{{route('admin.categories.edit', ['category'=>$category->id])}}">Ред.</a><a href="">Уд.</a></td>
                                 </tr>
                             @empty
                                 <tr>
