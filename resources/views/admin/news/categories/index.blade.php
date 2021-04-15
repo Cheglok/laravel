@@ -1,6 +1,9 @@
 @extends('layouts.admin')
 @section('content')
     <div class="row">
+        @if(session()->has('success'))
+            <div class="alert alert-success">{{session()->get('success')}}</div>
+            @endif
         <div class="col-md-12">
 
             <!-- Advanced Tables -->
@@ -27,7 +30,15 @@
                                     <td>{{$category->title}}</td>
                                     <td>{{$category->created_at}}</td>
                                     <td><a href="{{route('category', $category->id)}}">{{$category->title}}</a></td>
-                                    <td><a href="{{route('admin.categories.edit', ['category'=>$category->id])}}">Ред.</a><a href="">Уд.</a></td>
+                                    <td>
+                                        <a href="{{route('admin.categories.edit', ['category'=>$category])}}">Ред.</a>
+                                        <a href="javascript:void(0);" onclick="$(this).find('form').submit();" >Уд.
+                                            <form action="{{route('admin.categories.destroy', $category->id)}}" method="post">
+                                                <input type="hidden" name="_method" value="DELETE">
+                                                @csrf
+                                            </form>
+                                        </a>
+                                    </td>
                                 </tr>
                             @empty
                                 <tr>
@@ -36,6 +47,7 @@
                             @endforelse
                             </tbody>
                         </table>
+                        <div>{{$newsCategories->links()}}</div>
                         <a href="{{route('admin.categories.create')}}" class="btn btn-primary"><i
                                 class="fa fa-plus fa-sm text-white-50"></i>Добавить новую категорию</a>
                     </div>

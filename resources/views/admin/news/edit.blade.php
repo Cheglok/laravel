@@ -1,4 +1,33 @@
 @extends('layouts.admin')
 @section('content')
-    <h1 id="name">Редактировать новость, здесь будет форма<span></span></h1>
+    <div class="row">
+        <div class="col-lg-6 col-lg-offset-2">
+            <h2>Редактировать новость</h2>
+            <br>
+            @if($errors->any())
+                @foreach($errors->all() as $error)
+                    <div class="alert alert-danger">{{$error}}</div>
+                @endforeach
+            @endif
+            <form method="post" action="{{route('admin.categories.update', ['category' => $category])}}">
+                @csrf
+                @method('PUT')
+                <div class="form-group">
+                    <label for="title">Наименование</label>
+                    <input type="text" id="title" name="title" class="form-control" value="{{$category->title}}">
+                </div>
+                <div class="form-group">
+                    <label for="description">Описание</label>
+                    <textarea type="text" id="description" name="description" class="form-control">{!!$category->description!!}</textarea>
+                </div>
+                <div class="form-group">
+                    <label for="is_visible">Отображать</label>
+                    <input type="checkbox" id="is_visible" name="is_visible" value="1"
+                           @if($category->is_visible === true) checked @endif>
+                </div>
+                <br>
+                <button type="submit" class="btn btn-success">Сохранить</button>
+            </form>
+        </div>
+    </div>
 @endsection

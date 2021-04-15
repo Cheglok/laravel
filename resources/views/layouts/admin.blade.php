@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -25,16 +24,13 @@
     <x-admin-sidebar></x-admin-sidebar>
 
 
-
     <div id="page-wrapper">
         <div id="page-inner">
-           @yield('content')
+            @yield('content')
         </div>
         <x-admin-footer></x-admin-footer>
     </div>
 </div>
-
-
 
 
 <!-- JS Scripts-->

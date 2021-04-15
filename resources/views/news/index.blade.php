@@ -16,8 +16,8 @@
 
                     </a>
                     <p class="post-meta">Опубликовал Админ
-                        {{$news->created_at ?? now()}} &middot;
-                        <i>Категория {{$news->category_title}}</i>
+                        {{$news->created_at}} &middot;
+                        <i>Категория {{$news->category->title}}</i>
                         <b>Источник {{$news->source_title}}</b>
                     </p>
                 </article>
@@ -25,6 +25,7 @@
             @empty
                 <h2>Новостей нет</h2>
             @endforelse
+            <div>{{$newsList->links()}}</div>
         </div>
         <div class="clearfix">
             <a class="btn btn-primary float-right" href="/news">Показать все посты &rarr;</a>

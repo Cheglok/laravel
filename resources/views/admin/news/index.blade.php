@@ -6,7 +6,7 @@
             <!-- Advanced Tables -->
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    Список новостей (Всего {{$count}})
+                    Список новостей
                 </div>
                 <div class="panel-body">
                     <div class="table-responsive">
@@ -25,7 +25,7 @@
                                 <tr>
                                     <td>{{$news->id}}</td>
                                     <td>{{$news->title}}</td>
-                                    <td>{{$news->source_title}}</td>
+                                    <td>{{$news->source->title}}</td>
                                     <td>{{$news->created_at}}</td>
                                     <td><a href="{{route('admin.news.edit', ['news'=>$news->id])}}">Ред.</a><a href="">Уд.</a></td>
                                 </tr>
@@ -36,6 +36,7 @@
                             @endforelse
                             </tbody>
                         </table>
+                        <div>{{$newsList->links()}}</div>
                         <a href="{{route('admin.news.create')}}" class="btn btn-primary"><i
                                 class="fa fa-plus fa-sm text-white-50"></i>Добавить новость</a>
                     </div>

@@ -11,19 +11,21 @@ class NewsController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function index()
     {
-        $objNews = new News();
-        $news = $objNews->getNews(true);
-        return view('admin.news.index', ['newsList' => $news, 'count' => $objNews->getCount()]);
+        $news = News::with('source')->paginate(10);
+
+        return view('admin.news.index', [
+            'newsList' => $news
+        ]);
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function create()
     {
