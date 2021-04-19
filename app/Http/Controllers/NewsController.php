@@ -19,7 +19,7 @@ class NewsController extends Controller
     }
     public function show(int $id)
     {
-        $news = News::findOrFail($id);
+        $news = News::with(['category', 'source'])->findOrFail($id);
         return view('news.show', ['news'=>$news]);
     }
 }

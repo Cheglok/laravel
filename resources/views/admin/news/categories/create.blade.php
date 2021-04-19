@@ -9,6 +9,9 @@
                     <div class="alert alert-danger">{{$error}}</div>
                 @endforeach
             @endif
+            @if(session()->has('error'))
+                <div class="alert alert-danger">{{session()->get('error')}}</div>
+            @endif
             <form method="post" action="{{route('admin.categories.store')}}">
                 @csrf
                 <div class="form-group">

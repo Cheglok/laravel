@@ -3,10 +3,10 @@
     <section id="intro" class="section intro">
         <div class="container">
             <div class="col-md-12 text-center">
-                <h3>{{$category}}</h3>
-                <p>Читайте наши интересные новости o {{$category}}</p>
+                <h3>{{$category->title}}</h3>
+                <p>Читайте наши интересные новости o {{$category->title}}</p>
             </div>
-            @foreach($newsList as $news)
+            @foreach($category->news as $news)
                     <article class="post-preview text-center">
                         <a href="{{route('news.show', $news->id)}}">
                             <h2 class="post-title">{{$news->title}}</h2>
@@ -14,7 +14,7 @@
                         </a>
                         <p class="post-meta">Опубликовал Админ
                             {{now()}} &middot;
-                            <i>Источник {{$news->source_title}}</i>
+                            <i>Источник {{$news->source->title}}</i>
                         </p>
                     </article>
                     <hr>

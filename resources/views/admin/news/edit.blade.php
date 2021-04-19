@@ -9,21 +9,31 @@
                     <div class="alert alert-danger">{{$error}}</div>
                 @endforeach
             @endif
-            <form method="post" action="{{route('admin.categories.update', ['category' => $category])}}">
+            @if(session()->has('error'))
+                <div class="alert alert-danger">{{session()->get('error')}}</div>
+            @endif
+            <form method="post" action="{{route('admin.news.update', ['news' => $news])}}">
                 @csrf
                 @method('PUT')
                 <div class="form-group">
-                    <label for="title">Наименование</label>
-                    <input type="text" id="title" name="title" class="form-control" value="{{$category->title}}">
+                    <label for="category">Категория</label>
+                    <select class="form-control" name="category_id" id="category">
+                        <option value="2">Выбрать</option>
+                    </select>
                 </div>
                 <div class="form-group">
-                    <label for="description">Описание</label>
-                    <textarea type="text" id="description" name="description" class="form-control">{!!$category->description!!}</textarea>
+                    <label for="source">Источник</label>
+                    <select class="form-control" name="source_id" id="source">
+                        <option value="2">Выбрать</option>
+                    </select>
                 </div>
                 <div class="form-group">
-                    <label for="is_visible">Отображать</label>
-                    <input type="checkbox" id="is_visible" name="is_visible" value="1"
-                           @if($category->is_visible === true) checked @endif>
+                    <label for="title">Название</label>
+                    <input type="text" id="title" name="title" class="form-control" value="{{$news->title}}">
+                </div>
+                <div class="form-group">
+                    <label for="text">Текст</label>
+                    <textarea type="text" id="text" name="text" class="form-control">{!!$news->text!!}</textarea>
                 </div>
                 <br>
                 <button type="submit" class="btn btn-success">Сохранить</button>

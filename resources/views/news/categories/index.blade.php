@@ -18,6 +18,7 @@
             @empty
                 <h2>Новостей нет</h2>
             @endforelse
+            {{$newsCategories->links()}}
         </div>
     </section>
 @endsection

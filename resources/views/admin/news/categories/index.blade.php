@@ -10,10 +10,14 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     Список категорий
+                    <a href="{{route('admin.categories.create')}}" class="btn btn-primary">
+                        <i class="fa fa-plus fa-sm text-white-50"></i>
+                        Добавить новую категорию
+                    </a>
                 </div>
                 <div class="panel-body">
                     <div class="table-responsive">
-                        <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                        <table class="table table-striped table-bordered table-hover">
                             <thead>
                             <tr>
                                 <th>#ID</th>
@@ -48,8 +52,6 @@
                             </tbody>
                         </table>
                         <div>{{$newsCategories->links()}}</div>
-                        <a href="{{route('admin.categories.create')}}" class="btn btn-primary"><i
-                                class="fa fa-plus fa-sm text-white-50"></i>Добавить новую категорию</a>
                     </div>
 
                 </div>

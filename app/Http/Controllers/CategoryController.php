@@ -9,7 +9,7 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        $categories = (new Category())->getCategories();
+        $categories = Category::paginate(5);
         return view('news.categories.index',
             ['newsCategories' => $categories
             ]);
@@ -17,12 +17,8 @@ class CategoryController extends Controller
 
     public function show($categoryId)
     {
-        $categories = (new Category())->getCategoryById($categoryId);
-        $categoryTitle = (new Category())->getCategoryNameById($categoryId);
-//        dd($categories, $categoryTitle);
+        $category = Category::with('news.source')->findOrFail($categoryId);
         return view("news.categories.show",
-            ['category' => $categoryTitle,
-                'newsList' => $categories
-            ]);
+            ['category' => $category]);
     }
 }

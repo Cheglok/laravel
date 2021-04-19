@@ -17,7 +17,7 @@ class CreateCategoriesTable extends Migration
             $table->id();
             $table->string('title', 191);
             $table->string('description')->nullable();
-            $table->boolean('is_visible')->default(true);
+            $table->boolean('is_visible')->default(false);
             $table->timestamps();
         });
     }

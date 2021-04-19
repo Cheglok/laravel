@@ -6,13 +6,15 @@ use App\Enums\NewsStatusEnum;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Support\Collection;
-
 class News extends Model
 {
     use HasFactory;
 
     protected $table = "news";
+
+    protected $fillable = [
+        'title', 'text', 'category_id', 'slug', 'image', 'status', 'source_id'
+    ];
 
     public function category(): BelongsTo
     {
