@@ -9,8 +9,8 @@
             </div>
             @forelse ($newsCategories as $category)
                 <article class="post-preview text-center">
-                    <a href="{{route('category', $category)}}">
-                        <h2 class="post-title">{{$category}}</h2>
+                    <a href="{{route('category', $category->id)}}">
+                        <h2 class="post-title">{{$category->title}}</h2>
 
                     </a>
                 </article>
@@ -18,6 +18,7 @@
             @empty
                 <h2>Новостей нет</h2>
             @endforelse
+            {{$newsCategories->links()}}
         </div>
     </section>
 @endsection

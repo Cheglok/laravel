@@ -38,5 +38,4 @@ Route::get('/news/show/{id}', [NewsController::class, 'show'])
 
 Route::get('/user', [UserController::class, 'index']) ->name('user');
 Route::post('/user/feedback', [UserController::class, 'saveUserFeedback'])->name('userFeedback');
-Route::post('/user/order', [UserController::class, 'saveUserOrder'])->name('userOrder');
-//commit for pull-request
+Route::post('/user/order', [UserController::class, 'saveUserOrder'])->name('userOrder') ;

@@ -1,20 +1,28 @@
 @extends('layouts.admin')
 @section('content')
     <div class="row">
+        @if(session()->has('success'))
+            <div class="alert alert-success">{{session()->get('success')}}</div>
+            @endif
         <div class="col-md-12">
 
             <!-- Advanced Tables -->
             <div class="panel panel-default">
                 <div class="panel-heading">
                     Список категорий
+                    <a href="{{route('admin.categories.create')}}" class="btn btn-primary">
+                        <i class="fa fa-plus fa-sm text-white-50"></i>
+                        Добавить новую категорию
+                    </a>
                 </div>
                 <div class="panel-body">
                     <div class="table-responsive">
-                        <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                        <table class="table table-striped table-bordered table-hover">
                             <thead>
                             <tr>
                                 <th>#ID</th>
                                 <th>Название категории</th>
+                                <th>Дата добавления</th>
                                 <th>Посмотреть новости в категории</th>
                                 <th>Действия</th>
                             </tr>
@@ -22,10 +30,19 @@
                             <tbody>
                             @forelse($newsCategories as $key =>$category)
                                 <tr>
-                                    <td>{{$key}}</td>
-                                    <td>{{$category}}</td>
-                                    <td><a href="{{route('category', $category)}}">{{$category}}</a></td>
-                                    <td><a href="{{route('admin.categories.edit', ['category'=>$key])}}">Ред.</a><a href="">Уд.</a></td>
+                                    <td>{{$category->id}}</td>
+                                    <td>{{$category->title}}</td>
+                                    <td>{{$category->created_at}}</td>
+                                    <td><a href="{{route('category', $category->id)}}">{{$category->title}}</a></td>
+                                    <td>
+                                        <a href="{{route('admin.categories.edit', ['category'=>$category])}}">Ред.</a>
+                                        <a href="javascript:void(0);" onclick="$(this).find('form').submit();" >Уд.
+                                            <form action="{{route('admin.categories.destroy', $category->id)}}" method="post">
+                                                <input type="hidden" name="_method" value="DELETE">
+                                                @csrf
+                                            </form>
+                                        </a>
+                                    </td>
                                 </tr>
                             @empty
                                 <tr>
@@ -34,8 +51,7 @@
                             @endforelse
                             </tbody>
                         </table>
-                        <a href="{{route('admin.categories.create')}}" class="btn btn-primary"><i
-                                class="fa fa-plus fa-sm text-white-50"></i>Добавить новую категорию</a>
+                        <div>{{$newsCategories->links()}}</div>
                     </div>
 
                 </div>

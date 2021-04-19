@@ -2,26 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
     public function index()
     {
+        $categories = Category::paginate(5);
         return view('news.categories.index',
-            ['newsCategories' => $this->newsCategories
+            ['newsCategories' => $categories
             ]);
     }
 
-    public function show($category)
+    public function show($categoryId)
     {
-        if (!in_array($category, $this->newsCategories)) {
-            return "Нет такой категории новостей";
-        } else {
-            return view("news.categories.show",
-                ['category' => $category,
-                    'newsList' => $this->newsList
-                ]);
-        }
+        $category = Category::with('news.source')->findOrFail($categoryId);
+        return view("news.categories.show",
+            ['category' => $category]);
     }
 }
