@@ -10,9 +10,9 @@ class NewsController extends Controller
 {
     public function index()
     {
-        $news = News::select('news.id', 'news.title', 'news.slug', 'news.text', 'news.created_at', 'news.category_id')
+        $news = News::select('news.id', 'news.title', 'news.slug', 'news.text', 'news.created_at', 'news.category_id', 'news.source_id')
             ->where('status', NewsStatusEnum::PUBLISHED)
-            ->with('category')
+            ->with(['category', 'source'])
             ->paginate(5);
 
         return view('news.index', ['newsList'=>$news]);

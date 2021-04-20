@@ -53,7 +53,7 @@ class NewsController extends Controller
             return redirect()->route('admin.news.index')
                 ->with('success', 'Новость успешно добавилась');
         }
-        return back()->with('error', 'Не удалось довбавить запись');
+        return back()->with('error', 'Не удалось добавить запись');
     }
 
     /**

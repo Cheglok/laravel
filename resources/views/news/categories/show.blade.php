@@ -1,10 +1,11 @@
-@extends('layouts.main2')
+@extends('layouts.main')
 @section('content')
     <section id="intro" class="section intro">
         <div class="container">
             <div class="col-md-12 text-center">
+                <h2>Новости по отдельной категории</h2>
                 <h3>{{$category->title}}</h3>
-                <p>Читайте наши интересные новости o {{$category->title}}</p>
+                <p>Читайте наши интересные новости o категории {{$category->title}}</p>
             </div>
             @foreach($category->news as $news)
                     <article class="post-preview text-center">
