@@ -4,21 +4,30 @@
         <div class="col-lg-6 col-lg-offset-2">
             <h2>Добавить новость</h2>
             <br>
-            @if(session()->has('error'))
-                <div class="alert alert-danger">{{session()->get('error')}}</div>
+            @if($errors->any())
+                @foreach($errors->all() as $error)
+                    <div class="alert alert-danger">{{$error}}</div>
+                @endforeach
             @endif
+{{--            @if(session()->has('error'))--}}
+{{--                <div class="alert alert-danger">{{session()->get('error')}}</div>--}}
+{{--            @endif--}}
             <form method="post" action="{{route('admin.news.store')}}">
                 @csrf
                 <div class="form-group">
                     <label for="category">Категория</label>
                     <select class="form-control" name="category_id" id="category">
-                        <option value="2">Выбрать</option>
+                        @foreach($categories as $category)
+                            <option value="{{$category->id}}">{{$category->title}}</option>
+                        @endforeach
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="source">Источник</label>
                     <select class="form-control" name="source_id" id="source">
-                        <option value="2">Выбрать</option>
+                        @foreach($sources as $source)
+                            <option value="{{$source->id}}">{{$source->title}}</option>
+                        @endforeach
                     </select>
                 </div>
                 <div class="form-group">

@@ -9,10 +9,10 @@
     var mainApp = {
 
         initFunction: function () {
-            /*MENU 
+            /*MENU
             ------------------------------------*/
             $('#main-menu').metisMenu();
-			
+
             $(window).bind("load resize", function () {
                 if ($(this).width() < 768) {
                     $('div.sidebar-collapse').addClass('collapse')
@@ -23,48 +23,48 @@
 
             /* MORRIS BAR CHART
 			-----------------------------------------*/
-            Morris.Bar({
-                element: 'morris-bar-chart',
-                data: [{
-                    y: '2006',
-                    a: 100,
-                    b: 90
-                }, {
-                    y: '2007',
-                    a: 75,
-                    b: 65
-                }, {
-                    y: '2008',
-                    a: 50,
-                    b: 40
-                }, {
-                    y: '2009',
-                    a: 75,
-                    b: 65
-                }, {
-                    y: '2010',
-                    a: 50,
-                    b: 40
-                }, {
-                    y: '2011',
-                    a: 75,
-                    b: 65
-                }, {
-                    y: '2012',
-                    a: 100,
-                    b: 90
-                }],
-                xkey: 'y',
-                ykeys: ['a', 'b'],
-                labels: ['Series A', 'Series B'],
-				 barColors: [
-    '#A6A6A6','#30a5ff',
-    '#A8E9DC' 
-  ],
-                hideHover: 'auto',
-                resize: true
-            });
-	 
+  //           Morris.Bar({
+  //               element: 'morris-bar-chart',
+  //               data: [{
+  //                   y: '2006',
+  //                   a: 100,
+  //                   b: 90
+  //               }, {
+  //                   y: '2007',
+  //                   a: 75,
+  //                   b: 65
+  //               }, {
+  //                   y: '2008',
+  //                   a: 50,
+  //                   b: 40
+  //               }, {
+  //                   y: '2009',
+  //                   a: 75,
+  //                   b: 65
+  //               }, {
+  //                   y: '2010',
+  //                   a: 50,
+  //                   b: 40
+  //               }, {
+  //                   y: '2011',
+  //                   a: 75,
+  //                   b: 65
+  //               }, {
+  //                   y: '2012',
+  //                   a: 100,
+  //                   b: 90
+  //               }],
+  //               xkey: 'y',
+  //               ykeys: ['a', 'b'],
+  //               labels: ['Series A', 'Series B'],
+	// 			 barColors: [
+  //   '#A6A6A6','#30a5ff',
+  //   '#A8E9DC'
+  // ],
+  //               hideHover: 'auto',
+  //               resize: true
+  //           });
+
 
 
             /* MORRIS DONUT CHART
@@ -83,7 +83,7 @@
                 }],
 				   colors: [
     '#A6A6A6','#30a5ff',
-    '#A8E9DC' 
+    '#A8E9DC'
   ],
                 resize: true
             });
@@ -172,8 +172,8 @@
 					  { y: '2023', a: 145, b: 155},
 					  { y: '2024', a: 160, b: 195}
 				],
-            
-				 
+
+
       xkey: 'y',
       ykeys: ['a', 'b'],
       labels: ['Total Income', 'Total Outcome'],
@@ -184,17 +184,17 @@
       pointFillColors:['#ffffff'],
       pointStrokeColors: ['black'],
       lineColors:['gray','#30a5ff']
-	  
+
             });
-           
-        
+
+
             $('.bar-chart').cssCharts({type:"bar"});
             $('.donut-chart').cssCharts({type:"donut"}).trigger('show-donut-chart');
             $('.line-chart').cssCharts({type:"line"});
 
             $('.pie-thychart').cssCharts({type:"pie"});
-       
-	 
+
+
         },
 
         initialization: function () {
@@ -206,18 +206,18 @@
     // Initializing ///
 
     $(document).ready(function () {
-        mainApp.initFunction(); 
+        mainApp.initFunction();
 		$("#sideNav").click(function(){
 			if($(this).hasClass('closed')){
 				$('.navbar-side').animate({left: '0px'});
 				$(this).removeClass('closed');
 				$('#page-wrapper').animate({'margin-left' : '260px'});
-				
+
 			}
 			else{
 			    $(this).addClass('closed');
 				$('.navbar-side').animate({left: '-260px'});
-				$('#page-wrapper').animate({'margin-left' : '0px'}); 
+				$('#page-wrapper').animate({'margin-left' : '0px'});
 			}
 		});
     });

@@ -4,6 +4,7 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Панель Администратора</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Bootstrap Styles-->
     <link href="{{asset('assets/css/bootstrap.css')}}" rel="stylesheet"/>
     <!-- FontAwesome Styles-->
@@ -14,7 +15,6 @@
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
     <!-- TABLE STYLES-->
     <link href="{{asset('assets/js/dataTables/dataTables.bootstrap.css')}}" rel="stylesheet"/>
-
 
 </head>
 <body>
@@ -43,13 +43,15 @@
 <!-- DATA TABLE SCRIPTS -->
 <script src="{{asset('assets/js/dataTables/jquery.dataTables.js')}}"></script>
 <script src="{{asset('assets/js/dataTables/dataTables.bootstrap.js')}}"></script>
-<script>
-    $(document).ready(function () {
-        $('#dataTables-example').dataTable();
-    });
-</script>
+
 <!-- Custom Js -->
 <script src="{{asset('assets/js/custom-scripts.js')}}"></script>
+<script src="{{ asset('assets/vendor/jquery/jquery.min.js') }}"></script>
+<script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 
+
+<!-- Custom scripts for all pages-->
+<script src="{{ asset('assets/js/sb-admin-2.min.js') }}"></script>
+@stack('js')
 </body>
 </html>
