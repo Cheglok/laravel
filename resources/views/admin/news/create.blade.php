@@ -4,14 +4,6 @@
         <div class="col-lg-6 col-lg-offset-2">
             <h2>Добавить новость</h2>
             <br>
-            @if($errors->any())
-                @foreach($errors->all() as $error)
-                    <div class="alert alert-danger">{{$error}}</div>
-                @endforeach
-            @endif
-{{--            @if(session()->has('error'))--}}
-{{--                <div class="alert alert-danger">{{session()->get('error')}}</div>--}}
-{{--            @endif--}}
             <form method="post" action="{{route('admin.news.store')}}">
                 @csrf
                 <div class="form-group">

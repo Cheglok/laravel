@@ -102,7 +102,7 @@ class CategoryController extends Controller
     {
         $status = $category->delete();
         if ($status) {
-            return redirect()->route('admin.categories.index')
+            return back()
                 ->with('success', __('messages.admin.categories.delete.success'));
         }
         return back()->with('error', __('messages.admin.categories.delete.fail'));

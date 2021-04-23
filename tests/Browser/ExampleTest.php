@@ -8,16 +8,15 @@
 //
 //class ExampleTest extends DuskTestCase
 //{
-//    /**
-//     * A basic browser test example.
-//     *
-//     * @return void
-//     */
-//    public function testBasicExample()
+//    public function test1Example()
 //    {
 //        $this->browse(function (Browser $browser) {
-//            $browser->visit('/news')
-//                    ->assertSee('Лента новостей');
+//            $browser->visit(route('admin.news.create'))
+//                ->assertSee('Добавить новость');
+////                    ->type('title', 'test')
+////                    ->type('text', 'testText')
+////                    ->press('Сохранить')
+////                    ->assertPathIs(route('admin.news.index'));
 //        });
 //    }
 //}

@@ -1,9 +1,6 @@
 @extends('layouts.admin')
 @section('content')
     <div class="row">
-        @if(session()->has('success'))
-            <div class="alert alert-success">{{session()->get('success')}}</div>
-            @endif
         <div class="col-md-12">
 
             <!-- Advanced Tables -->
