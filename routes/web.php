@@ -20,6 +20,10 @@ use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\user\UserController;
 
+Route::get('/', function () {
+    return view('welcome');
+});
+
 //for admin
 Route::group(['prefix' => 'admin',  'as'=>'admin.'], function () {
     Route::resource('categories', AdminCategoryController::class);
@@ -39,3 +43,7 @@ Route::get('/news/show/{id}', [NewsController::class, 'show'])
 Route::get('/user', [UserController::class, 'index']) ->name('user');
 Route::post('/user/feedback', [UserController::class, 'saveUserFeedback'])->name('userFeedback');
 Route::post('/user/order', [UserController::class, 'saveUserOrder'])->name('userOrder') ;
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
