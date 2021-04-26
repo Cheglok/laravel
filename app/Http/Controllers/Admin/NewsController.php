@@ -23,7 +23,6 @@ class NewsController extends Controller
     {
         $news = News::with('source')
             ->paginate(10);
-
         return view('admin.news.index', [
             'newsList' => $news
         ]);

@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+<x-site-header></x-site-header>
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -14,8 +14,9 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                    {{ __('You are logged in!', ['name' => Auth::user()->name]) }}
                 </div>
+                <a href="{{route('admin.news.index')}}">Перейти в админку</a>
             </div>
         </div>
     </div>

@@ -19,6 +19,9 @@
                         <a href="{{route('admin.news.index')}}">Новости</a>
                     </li>
                     <li>
+                        <a href="{{route('admin.users.index')}}">Пользователи</a>
+                    </li>
+                    <li>
                         <a href="{{route('user')}}">Формы обратной связи</a>
                     </li>
                     <li>
