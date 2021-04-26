@@ -14,8 +14,11 @@ class UserController extends Controller
         $userFeedback = 'Пользователь: ' . $request->input('name') . "\n";
         $userFeedback .= 'Отзыв: ' . $request->input('feedback') . "\n";
         $userFeedback .= date('l jS \of F Y h:i:s A') . "\n\n";
-        file_put_contents('userFiles/feedback.txt', $userFeedback, FILE_APPEND);
-        return "<h2>Отзыв принят успешно</h2><a href='/user'>Назад</a>";
+        $result = file_put_contents('userFiles/feedback.txt', $userFeedback, FILE_APPEND);
+        if($result) {
+            return back()->with('success', 'Ваш отзыв принят!');
+        }
+        return back()->with('error', 'Не удалось принять отзыв');
     }
     public function saveUserOrder(Request $request) {
         $name = $request->input('name');
@@ -23,7 +26,10 @@ class UserController extends Controller
         $email = $request->input('email');
         $order = $request->input('order');
         $userOrder = "Пользователь: {$name}\nТелефон: {$tel}\nEmail: {$email}\nЗаказ: {$order}\n\n";
-        file_put_contents('userFiles/orders.txt', $userOrder, FILE_APPEND);
-        return "<h2>Заказ принят успешно</h2><a href='/user'>Назад</a>";
+        $result = file_put_contents('userFiles/orders.txt', $userOrder, FILE_APPEND);
+        if($result) {
+            return back()->with('success', 'Ваш заказ принят!');
+        }
+        return back()->with('error', 'Не удалось принять заказ');
     }
 }

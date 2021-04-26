@@ -1,9 +1,9 @@
-@extends('layouts.main2')
+@extends('layouts.main')
 @section('content')
     <section id="intro" class="section intro">
         <div class="container">
             <div class="col-md-12 text-center">
-                <h3>Категории</h3>
+                <h2>Список всех категорий</h2>
                 <p>Выбирайте интересующую вас категорию</p>
                 <hr>
             </div>

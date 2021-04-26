@@ -1,12 +1,6 @@
 @extends('layouts.admin')
 @section('content')
     <div class="row">
-        @if(session()->has('success'))
-            <div class="alert alert-success">{{session()->get('success')}}</div>
-        @endif
-        @if(session()->has('error'))
-            <div class="alert alert-danger">{{session()->get('error')}}</div>
-        @endif
         <div class="col-md-12">
 
             <!-- Advanced Tables -->
@@ -43,6 +37,7 @@
                                                 @csrf
                                             </form>
                                         </a>
+                                        {{--<a href="javascript:;" class="delete" rel="{{$news->id}}"> Уд.</a>--}}
                                     </td>
                                 </tr>
                             @empty
@@ -61,3 +56,26 @@
         </div>
     </div>
 @endsection
+
+{{--@push('js')--}}
+{{--    <script>--}}
+{{--        $(function() {--}}
+{{--            $(".delete").on('click', function() {--}}
+{{--                let id = $(this).attr('rel');--}}
+{{--                if (confirm("Подтверждаете?")) {--}}
+{{--                    $.ajax({--}}
+{{--                        method: "delete",--}}
+{{--                        headers: {--}}
+{{--                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),--}}
+{{--                            'Content-Type': 'application/json',--}}
+{{--                        },--}}
+{{--                        url: "/admin/news/" + id,--}}
+{{--                        complete: function (response) {--}}
+{{--                            alert("Запись с ID" + id + " удалена");--}}
+{{--                        }--}}
+{{--                    });--}}
+{{--                }--}}
+{{--            });--}}
+{{--        });--}}
+{{--    </script>--}}
+{{--@endpush--}}
