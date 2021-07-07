@@ -1,6 +1,12 @@
-@extends('layouts.main2')
+@extends('layouts.main')
 @section('content')
 <div class="container">
+    @if(session()->has('success'))
+        <div class="alert alert-success">{{session()->get('success')}}</div>
+    @endif
+    @if(session()->has('error'))
+        <div class="alert alert-danger">{{session()->get('error')}}</div>
+    @endif
     <div class="row">
         <div class="col-lg-6 col-lg-offset-2">
             <h2>Оставьте свой отзыв о работе нашего сайта</h2>

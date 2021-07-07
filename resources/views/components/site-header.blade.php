@@ -1,31 +1,41 @@
-<!-- header section -->
-<section role="banner" id="home">
-    <header id="header">
-        <div class="header-content clearfix"> <a class="logo" href="index.html"><span class="icon icon-genius"></span> LANCER</a>
-            <nav class="navigation" role="navigation">
-                <ul class="primary-nav">
-                    <li><a href="/news">Главная</a></li>
-                    <li><a href="{{route('categories')}}">Список категорий</a></li>
-                    <li><a href="{{route('user')}}">Формы обратной связи</a></li>
-                    <li><a href="{{route('admin.news.index')}}">Админка</a></li>
-                </ul>
-            </nav>
-            <a href="#" class="nav-toggle">Menu<span></span></a> </div>
-    </header>
-</section>
-<section id="main-slider">
-    {{--    <div class="owl-carousel">--}}
-    <div class="item" style="background-image: url({{asset('assets/user/images/slider/bg1.jpg')}});">
-        <div class="slider-inner">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <h2>Сайт новостей</h2>
-                        <p>Добро пожаловать</p>
-                    </div>
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container">
+        <a class="navbar-brand" href="https://startbootstrap.com/theme/clean-blog">Start Bootstrap</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            Menu
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('news')}}">Список новостей</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('categories')}}">Список категорий</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('user')}}">Формы обратной связи</a></li>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('admin.news.index')}}">Админка</a></li>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Page Header -->
+<header class="masthead" style="background-image: url({{asset('assets/img/bg1.jpg')}})">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <div class="site-heading">
+                    <h1>Сайт новостей</h1>
+                    <span class="subheading">Добро пожаловать на наш сайт</span>
                 </div>
             </div>
         </div>
-    </div><!--/.item-->
-</section>
-<!--/#main-slider-->
+    </div>
+</header>

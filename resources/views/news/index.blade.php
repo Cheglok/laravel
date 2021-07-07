@@ -1,9 +1,10 @@
-@extends('layouts.main2')
+@extends('layouts.main')
+@php($title='Сайт новостей')
 @section('content')
     <section id="intro" class="section intro">
         <div class="container">
             <div class="col-md-12 text-center">
-                <h3>Лента новостей</h3>
+                <h1>Лента новостей</h1>
                 <p>Читайте наши интересные новости</p>
                 <hr>
             </div>
@@ -16,9 +17,9 @@
 
                     </a>
                     <p class="post-meta">Опубликовал Админ
-                        {{$news->created_at}} &middot;
-                        <i>Категория {{$news->category->title}}</i>
-                        <b>Источник {{$news->source_title}}</b>
+                        {{$news->created_at}} &middot;<br>
+                        <a href="{{route('category', $news->category->id)}}"><i>Категория: {{$news->category->title}}</i><br></a>
+                        <b>Источник: {{$news->source->title}}</b>
                     </p>
                 </article>
                 <hr>

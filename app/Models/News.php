@@ -15,6 +15,10 @@ class News extends Model
     protected $fillable = [
         'title', 'text', 'category_id', 'slug', 'image', 'status', 'source_id'
     ];
+    /**
+     * @var mixed
+     */
+    private $title;
 
     public function category(): BelongsTo
     {
@@ -23,6 +27,6 @@ class News extends Model
 
     public function source(): BelongsTo
     {
-        return $this->belongsTo(Source::class, 'source_id', 'id');
+        return $this->belongsTo(Source::class);
     }
 }

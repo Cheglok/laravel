@@ -4,19 +4,16 @@
         <div class="col-lg-6 col-lg-offset-2">
             <h2>Добавить категорию</h2>
             <br>
-            @if($errors->any())
-                @foreach($errors->all() as $error)
-                    <div class="alert alert-danger">{{$error}}</div>
-                @endforeach
-            @endif
-            @if(session()->has('error'))
-                <div class="alert alert-danger">{{session()->get('error')}}</div>
-            @endif
             <form method="post" action="{{route('admin.categories.store')}}">
                 @csrf
                 <div class="form-group">
                     <label for="title">Наименование</label>
-                    <input type="text" id="title" name="title" class="form-control" value="{{old('title')}}">
+                    <input type="text" id="title" name="title" @error('title') style = "border: 1px solid red" @enderror class="form-control" placeholder="Название категории" value="{{old('title')}}">
+                    @if($errors->has('title'))
+                        @foreach($errors->get('title') as $error)
+                            {{$error}}
+                        @endforeach
+                    @endif
                 </div>
                 <div class="form-group">
                     <label for="description">Описание</label>
